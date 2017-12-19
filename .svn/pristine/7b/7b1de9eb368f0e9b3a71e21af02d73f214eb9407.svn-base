@@ -1,0 +1,36 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PopoverController } from 'ionic-angular';
+import { NewemrpopoverPage } from '../newemrpopover/newemrpopover';
+
+/**
+ * Generated class for the MedicalRecordPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@Component({
+  selector: 'page-medical-record',
+  templateUrl: 'medical-record.html',
+})
+export class MedicalRecordPage {
+
+  members:any;
+  records:any;
+    constructor(public navCtrl: NavController, public navParams: NavParams, public popOver:PopoverController ) {
+    this.members = ["Member1","Member2","Member3","Member4"];
+    this.records = [{date:"1/12/2017",numberofreports:"1",numberofpres:"2",reports:["assets/imgs/logo.png",'assets/imgs/logo.png','assets/imgs/logo.png'],pres:["assets/imgs/logo.png",'assets/imgs/logo.png','assets/imgs/logo.png']}];
+    }
+  
+    ionViewDidLoad() {
+      console.log('ionViewDidLoad OffersPage');
+  
+  }
+  
+     presentPopover() {
+      let popover = this.popOver.create(NewemrpopoverPage);
+      popover.present();
+    }
+
+}

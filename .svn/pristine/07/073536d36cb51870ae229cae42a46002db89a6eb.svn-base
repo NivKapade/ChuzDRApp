@@ -1,0 +1,63 @@
+import { Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
+import { ChatbotProvider } from '../../providers/chatbot/chatbot';
+import { ChatBot } from '../../model/chatbot.model';
+/**
+ * Generated class for the ChatbotPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@Component({
+  selector: 'page-chatbot',
+  templateUrl: 'chatbot.html',
+  providers: [ChatbotProvider]
+})
+export class ChatbotPage {
+  conversion: Array<ChatBot> = [];
+  messages2: any = [];
+  messages: any = [];
+  tokenRes: any;
+  sendMsg: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private chatbotService: ChatbotProvider) {
+  }
+
+  ionViewDidLoad() {
+    // debugger;
+    this.chatbotService.getToken().then(data => {
+      this.tokenRes = data;
+      if (this.tokenRes.status == "success") {
+        this.getMsg(0, this.messages);
+      } else {
+
+      }
+    });
+
+
+  }
+  getMsg(id: number, msg: any) {
+    debugger;
+    let ID = id;
+    console.log("GET IID :", ID);
+    //  if(ID !=undefine)
+    this.sendMsg = msg.commonText;
+    this.chatbotService.getToken().then(data => {
+      this.tokenRes = data;
+      if (this.tokenRes.status == "success") {
+        this.chatbotService.getMessages(id).then(response => {
+          debugger;
+          this.messages2 = response;
+          console.log("GET RESSSS 1 :", this.messages2);
+          this.conversion.push(this.messages2);
+          console.log("GET RESSSS2 :", this.conversion);
+          //  console.log("GET RESSSS2 :",this.conversion);
+        });
+      } else {
+
+      }
+    });
+
+  }
+
+}

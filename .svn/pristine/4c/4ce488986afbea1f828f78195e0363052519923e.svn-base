@@ -1,0 +1,37 @@
+page-newsdetail {
+    ion-card {
+        position: relative;
+        text-align: center;
+      }
+    .toolbar-title{
+        font-family: 'Segoe UI';
+        font-size: 20px;
+        font-weight: 600;
+    }
+    img{
+       
+    }
+
+h2{
+    font-family: 'Segoe UI';
+    font-size: 16px;
+    font-weight: 600; 
+    color: #333333;
+}
+p.date{
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    font-weight: 200; 
+    color: #656565;
+}
+p.detail{
+    font-family: 'Segoe UI';
+    font-size: 15px;
+    font-weight: 200; 
+    color:#333333;
+}
+.borderclass{
+    border-bottom: 0px;
+}
+
+}

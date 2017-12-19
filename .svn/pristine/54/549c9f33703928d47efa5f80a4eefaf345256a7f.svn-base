@@ -1,0 +1,51 @@
+{
+  "_from": "@ionic-native/http",
+  "_id": "@ionic-native/http@4.4.2",
+  "_inBundle": false,
+  "_integrity": "sha512-zIXpwtC1o4A7O5hbAS/2v0w2cjRt2z768L8vZ6FSDNdJCMfnUawk33tqqYM6dth9m1pHJ5ek6p3pyzdgI9nUUQ==",
+  "_location": "/@ionic-native/http",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@ionic-native/http",
+    "name": "@ionic-native/http",
+    "escapedName": "@ionic-native%2fhttp",
+    "scope": "@ionic-native",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@ionic-native/http/-/http-4.4.2.tgz",
+  "_shasum": "bf991e93b40dbb899921ee851d0681175443ca4e",
+  "_spec": "@ionic-native/http",
+  "_where": "D:\\Ionic_Project\\Sample\\ChuzDRApp",
+  "author": {
+    "name": "ionic"
+  },
+  "bugs": {
+    "url": "https://github.com/ionic-team/ionic-native/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Ionic Native - Native plugins for ionic apps",
+  "homepage": "https://github.com/ionic-team/ionic-native#readme",
+  "license": "MIT",
+  "module": "index.js",
+  "name": "@ionic-native/http",
+  "peerDependencies": {
+    "@ionic-native/core": "^4.2.0",
+    "@angular/core": "*",
+    "rxjs": "^5.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic-team/ionic-native.git"
+  },
+  "typings": "index.d.ts",
+  "version": "4.4.2"
+}

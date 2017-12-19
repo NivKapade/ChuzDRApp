@@ -1,0 +1,51 @@
+import { Component } from '@angular/core';
+import { Injector, ViewChild } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { IonicPage, Slides } from 'ionic-angular';
+// import { NewsdetailPage } from '../newsdetail/newsdetail';
+import { ModalController, NavParams } from 'ionic-angular';
+//import { HttpClient } from '@angular/common/http';
+@Component({
+  selector: 'page-home',
+  templateUrl: 'home.html'
+})
+export class HomePage {
+   public Community;
+   public newslist;
+   public newstypelist;
+   public newstype;
+   @ViewChild(Slides) slides: Slides;
+    public showLeftButton: boolean;
+    public showRightButton: boolean;
+  constructor(public navCtrl: NavController ) {
+   this.Community ="Lions club International";
+   this.newslist=[{"heading":"Heading","date":"Date","view":"View"}, {"heading":"Heading2","date":"Date2","view":"View2"},{"heading":"Heading3","date":"Date3","view":"View3"},{"heading":"Heading4","date":"Date4","view":"View4"},{"heading":"Heading5","date":"Date5","view":"View5"}];
+   this.newstypelist=["All","Community","Healthcare","Topic4","Topic5","Topic6"];
+   this.showLeftButton = false;
+   this.showRightButton = this.newstypelist.length > 3;
+  }
+  public getNewsDetail(news){
+      console.log("News detail");
+	  console.log(news);
+	//   this.navCtrl.push(NewsdetailPage,{param1:news});
+}
+   public filterData(newstype): void {
+	   this.newstype = newstype;
+        console.log(this.newstype);
+    }
+	    public slideChanged(): void {
+        let currentIndex = this.slides.getActiveIndex();
+        this.showLeftButton = currentIndex !== 0;
+        this.showRightButton = currentIndex !== this.slides.length()-3;
+    }
+
+    // Method that shows the next slide
+    public slideNext(): void {
+        this.slides.slideNext();
+    }
+
+    // Method that shows the previous slide
+    public slidePrev(): void {
+        this.slides.slidePrev();
+    }
+}

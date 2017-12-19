@@ -1,0 +1,47 @@
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
+import { ToastController } from 'ionic-angular/components/toast/toast-controller';
+import { OtpPage } from './../otp/otp';
+
+
+
+/**
+ * Generated class for the LoginPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@Component({
+  selector: 'page-login',
+  templateUrl: 'login.html',
+})
+export class LoginPage {
+
+  @ViewChild('mobile') number;
+  constructor(public navCtrl: NavController, navParams: NavParams,
+    public toastCtrl: ToastController) {
+
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad LoginPage');
+  }
+
+
+  login() {
+    console.log(this.number.value);
+    if ((this.number.value as string).length != 10) {
+      let toast = this.toastCtrl.create({
+        message: 'Please enter a valid mobile number',
+        duration: 3000
+      });
+      toast.present();
+    } else {
+      console.log("mobile " + this.number.value);
+     this.navCtrl.push(OtpPage,{
+      mobile: this.number.value
+    })
+    }
+  }
+}

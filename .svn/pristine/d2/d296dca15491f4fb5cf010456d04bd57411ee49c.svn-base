@@ -1,0 +1,81 @@
+<!--
+  Generated template for the MedicalrecordsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+    <ion-navbar color="header">
+      <ion-title>Medical Records</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+  <ion-grid>
+  <ion-row no-padding class="toprow">
+
+
+<ion-col col-6 no-padding>
+    <button class="selectmember" ion-button round="true">
+    <ion-select [(ngModel)]="memberSelected" placeholder="Family member" no-padding class="selectmem">
+     <ion-option *ngFor="let member of familyMemberList" [value]="member.memberName">{{member.memberName}}</ion-option>
+    </ion-select>
+  </button>
+   </ion-col>
+<ion-col col-1></ion-col>
+<ion-col col-5 no-padding>
+<button class="EMRbutton" ion-button round="true" (click)="presentPopover()">Add new EMR</button>
+</ion-col>
+  </ion-row>
+  <ion-card *ngFor="let record of records">
+  <ion-row class="topcardrow">
+  <ion-row><p class="recorddate" >{{record.date}}<p></ion-row>
+  <ion-row><p class="recorddesc">Records added by you Report({{record.reports.length}}) & Prescription({{record.pres.length}})<p></ion-row>
+  </ion-row>
+  <ion-row *ngFor="let file_uri of record.reports">
+  <ion-col col-7>
+  <div style="position: relative" padding>
+  <button ion-fab color="light" mini style="position: absolute; top: 0px; right: 0px; margin:0px;"><ion-icon name="logo-pinterest"></ion-icon></button>
+  <img [src]="file_uri" class="report">
+  </div>
+  </ion-col>
+  <ion-col col-3></ion-col>
+  <ion-col col-2>
+  <ion-row class="right">
+  <button class ="fabgroup"ion-fab color="light" mini><img class="fabimag" src="assets/imgs/share-icon.png"></button>
+  </ion-row>
+  <ion-row class="right">
+  <button ion-fab color="light" mini><img class="fabimag" src="assets/imgs/edit-icon.png"></button>
+  </ion-row>
+  <ion-row class="right">
+  <button ion-fab color="light" mini><img class="fabimag" src="assets/imgs/delete-icon.png"></button>
+  </ion-row>
+  </ion-col>
+  </ion-row>
+  <ion-row *ngFor="let file_uri of record.pres">
+  <ion-col col-7>
+  <div style="position: relative" padding>
+  <img [src]="file_uri" class="pres">
+  <button ion-fab color="light" mini style="position: absolute; top: 0px; right: 0px"><ion-icon name="logo-pinterest"></ion-icon></button>
+  </div>
+  </ion-col>
+  <ion-col col-3></ion-col>
+  <ion-col col-2>
+  <ion-row class="right" style="width:100%">
+  <button ion-fab color="light" mini><img class="fabimag" src="assets/imgs/share-icon.png"></button>
+  </ion-row>
+  <ion-row>
+  <button ion-fab color="light" mini><img class="fabimag" src="assets/imgs/edit-icon.png"></button>
+  </ion-row>
+  <ion-row>
+  <button ion-fab color="light" mini><img class="fabimag" src="assets/imgs/delete-icon.png"></button>
+  </ion-row>
+  </ion-col>
+  </ion-row>
+  </ion-card>
+</ion-grid>
+  </ion-content>
+  

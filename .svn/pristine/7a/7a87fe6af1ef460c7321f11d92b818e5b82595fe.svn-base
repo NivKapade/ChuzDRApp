@@ -1,0 +1,70 @@
+page-medical-record {
+    .report{
+        border: 1px solid grey;
+        border-radius: 5%;
+        }
+        .pres{
+        border: 1px solid grey;
+        border-radius: 5%;
+        }
+        img{
+        height: 300px;
+        }
+        .right {
+            justify-content: right;
+            align-items: right;
+        }
+    .selectmember{
+        width: 100%;
+        text-transform: none;
+        background-color: white;
+        color: black;
+    }
+    .button-inner{
+        width: 100%;
+        padding: 0;
+    }
+    .topcardrow{
+        background-color: #f4f4f4;
+       
+    }
+    .topcardrow{
+        background-color: #f4f4f4;
+    }
+    .recorddate
+    {
+        color: #0067a9;
+    }
+    .recorddesc
+    {
+        color: grey;
+    }
+    .EMRbutton{
+        background-color: #53D3FF;
+        color: white;
+        text-transform: none;
+    }
+    .selectmem{
+        max-width: 100%;
+        width: 100%;
+    }
+    .select-text
+    {
+        text-align: left;
+        width: 80%;
+    }
+    .select-icon
+    {
+        width: 20% !important;
+        align-items: left;
+        padding: 0;
+    }
+    .fabgroup{
+        width: 43px;
+        height: 43px;
+    }
+    .fabimag{
+        width: 70%;
+        height: 70%;
+    }
+}

@@ -1,0 +1,83 @@
+import { TokenServiceProvider } from './../providers/token-service/token-service';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HTTP } from '@ionic-native/http';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { MyApp } from './app.component';
+
+import { AboutPage } from '../pages/about/about';
+import { ContactPage } from '../pages/contact/contact';
+import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/tabs/tabs';
+import { ChatbotPage } from '../pages/chatbot/chatbot';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { ChatbotProvider } from '../providers/chatbot/chatbot';
+import { LoginPage } from './../pages/login/login';
+import { OtpPage } from './../pages/otp/otp';
+import { NewsdetailPage } from './../pages/newsdetail/newsdetail';
+import { SettingsPage } from '../pages/settings/settings';
+import { HowItWorksPage } from '../pages/how-it-works/how-it-works';
+import { TermsOfUsePage } from '../pages/terms-of-use/terms-of-use';
+import { ContactUsPage } from '../pages/contact-us/contact-us';
+import { LoginServiceProvider } from '../providers/login-service/login-service';
+import { OtpServiceProvider } from '../providers/otp-service/otp-service';
+
+
+
+@NgModule({
+  declarations: [
+    MyApp,
+    AboutPage,
+    ContactPage,
+    HomePage,
+    TabsPage,
+    ChatbotPage,
+    LoginPage,
+    OtpPage,
+    NewsdetailPage,
+    SettingsPage,
+    HowItWorksPage,
+    TermsOfUsePage,
+    ContactUsPage
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule, HttpModule,
+    IonicModule.forRoot(MyApp)
+  ],
+  bootstrap: [IonicApp],
+
+  entryComponents: [
+    MyApp,
+    AboutPage,
+    ContactPage,
+    HomePage,
+    TabsPage,
+    ChatbotPage,
+    LoginPage,
+    OtpPage,
+    NewsdetailPage,
+    SettingsPage,
+    HowItWorksPage,
+    TermsOfUsePage,
+    ContactUsPage
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+   
+    ChatbotProvider,
+    HTTP,
+    TokenServiceProvider,
+    LoginServiceProvider,
+    OtpServiceProvider
+
+  ]
+})
+export class AppModule { }

@@ -1,0 +1,70 @@
+
+import { Injectable } from '@angular/core';
+import { RequestOptions,Http,Response } from '@angular/http';
+import { Headers } from '@angular/http';
+
+
+/*
+  Generated class for the ChatbotProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+@Injectable()
+export class ChatbotProvider {
+  token:string='';
+  chatMessages:any;
+  
+  constructor(public http: Http) {
+    console.log('Hello ChatbotProvider Provider');
+  }
+   getToken(){
+    
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('ApplicationId', '11105'); 
+    headers.append('Accept', 'application/json');
+  
+     let options=new RequestOptions({ headers:headers });
+     return new Promise(resolve => {
+      this.http.get('http://45.127.106.51/ChuzDr/api/token/getToken',options).
+ 
+      subscribe((data:Response )=> {
+        debugger;
+        let res:any=data.json();
+        this.token = data.json().responseObject;
+        console.log("RES DATA :",this.token);
+        resolve(res);
+        
+      }, err => {
+        console.log(err);
+      });
+    });
+  
+   }
+   getMessages(parentId:number){
+     
+     debugger;
+     console.log("TOKEN :",this.token);
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('ApplicationId', '11105'); 
+    headers.append('Token', this.token);
+    headers.append('Accept', 'application/json');
+  
+     let options=new RequestOptions({ headers:headers });
+     return new Promise(resolve => {
+      this.http.get('http://45.127.106.51/ChuzDr/api/web/chatBot?parentId='+parentId+'&userId=5',options).
+ 
+      subscribe((data:Response )=> {
+        this.chatMessages = data.json().responseObject;
+       
+        resolve(this.chatMessages);
+        
+      }, err => {
+        console.log(err);
+      });
+    });
+   }
+
+}

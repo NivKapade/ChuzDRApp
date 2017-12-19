@@ -1,0 +1,21 @@
+<!--
+  Generated template for the NewsdetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+    <ion-navbar color="header">
+      <ion-title>{{Community}}</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+      <h2>{{newsobj.postTag}}</h2>
+      <p>{{newsobj.createdDate}}</p>
+    <p>{{newsobj.postDesc}}<p>
+  </ion-content>
+  

@@ -1,0 +1,51 @@
+import { RequestOptions, Http, Response } from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Headers } from '@angular/http';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
+
+/*
+  Generated class for the TokenServiceProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+@Injectable()
+export class TokenServiceProvider {
+  url: string = "http://192.168.12.59:8080/CS-OTP/api";
+  token: string = "";
+
+  constructor(public http: Http) {
+
+  }
+
+  getToken() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('ApplicationId', '11105');
+    headers.append('Accept', 'application/json');
+    
+    // headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+    // headers.append('Access-Control-Allow-Origin', '*');
+    // headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
+
+    let options = new RequestOptions({ headers: headers });
+    return new Promise(resolve => {
+      this.http.get(this.url + "/token/getToken", options).
+        subscribe((data: Response) => {
+          let res: any = data.json();
+          this.token = data.json().responseObject;
+          console.log("token" + this.token);
+          resolve(res);
+
+        }, err => {
+          console.log("error " + err);
+        });
+    });
+
+
+  }
+
+}

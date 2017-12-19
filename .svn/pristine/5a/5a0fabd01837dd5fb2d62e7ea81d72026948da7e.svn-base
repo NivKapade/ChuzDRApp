@@ -1,0 +1,96 @@
+import { Component } from '@angular/core';
+import { Injector, ViewChild } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { IonicPage, Slides } from 'ionic-angular';
+import { NewsdetailPage } from '../newsdetail/newsdetail';
+import { HomeProvider } from '../../providers/home/home';
+import { TokenServiceProvider } from '../../providers/token-service/token-service'
+import { ModalController, NavParams } from 'ionic-angular';
+//import { HttpClient } from '@angular/common/http';
+@Component({
+  selector: 'page-home',
+  templateUrl: 'home.html'
+})
+export class HomePage {
+   public Community;
+   newslist:any = [];
+   unfilnewslist:any= [];
+   public newstypelist;
+   newstype: any = '1';
+   tokenRes: any;
+   @ViewChild(Slides) slides: Slides;
+    public showLeftButton: boolean;
+    public showRightButton: boolean;
+  constructor(public navCtrl: NavController, private homeService: HomeProvider, private tokenService: TokenServiceProvider ) {
+   this.Community ="Lions club International";
+   this.newstypelist=["All","Community","Healthcare","Topic4","Topic5","Topic6"];
+   this.showLeftButton = false;
+   this.showRightButton = this.newstypelist.length > 3;
+  }
+  ionViewDidLoad() {
+    // debugger;
+    console.log("HomePage");
+    this.tokenService.getToken().then(data => {
+      this.tokenRes = data;
+      if (this.tokenRes.status == "success") {
+        console.log(this.tokenRes);
+        this.getNews()
+        
+      } else {
+
+      }
+    });
+
+
+  }
+  public getNewsDetail(news){
+      console.log("News detail");
+	  console.log(news);
+   this.navCtrl.push(NewsdetailPage,{param1:news});
+}
+   public filterData(newstype): void {
+   if(newstype == 'All')
+    {this.newstype = "1";}
+    else if(newstype == 'Community')
+    {this.newstype = "2";}
+   else if(newstype == 'Healthcare')
+    {this.newstype = "3";}
+   else{
+     this.newstype = "4";
+   }
+   console.log(newstype);
+   console.log(this.newstype);
+    }
+	    public slideChanged(): void {
+        let currentIndex = this.slides.getActiveIndex();
+        this.showLeftButton = currentIndex !== 0;
+        this.showRightButton = currentIndex !== this.slides.length()-3;
+    }
+
+    // Method that shows the next slide
+    public slideNext(): void {
+        this.slides.slideNext();
+    }
+
+    // Method that shows the previous slide
+    public slidePrev(): void {
+        this.slides.slidePrev();
+    }
+    getNews()
+    {
+        debugger
+        this.tokenService.getToken().then(data => {
+          this.tokenRes = data;
+          if (this.tokenRes.status == "success") {
+            this.homeService.getPost(this.tokenRes.responseObject).then(response => {
+              debugger;
+              console.log(response);
+              this.newslist = response;
+            });
+          } else {
+    
+          }
+        });
+
+    }
+}

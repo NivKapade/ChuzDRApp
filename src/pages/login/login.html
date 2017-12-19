@@ -1,0 +1,49 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>login</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content>
+
+    <form>
+        <ion-avatar item-left class="logo">
+          <img padding src="assets/imgs/logo-main.png">
+        </ion-avatar>
+    
+        <h3 ion-text>Hi.</h3>
+        <h6 ion-text color="primaryTextColor">Lets Get Started</h6>
+        <h6 ion-text color="secondaryTextColor">Enter your contact number</h6>
+    
+        <ion-item padding class="input">
+          <ion-input type="tel" #mobile ngControl="mobile" id="mobile" placeholder="Mobile Number" minlength=10 maxlength=10>
+          </ion-input>
+        </ion-item>
+    
+    
+        <div text-center>
+          <button ion-button round icon-end (click)="login()">Proceed
+            <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+          <!-- <button ion-button round (click)="register()">Register</button> -->
+        </div>
+    
+    
+    
+      </form>
+    
+      <div class="bottom">
+        <img src="assets/imgs/footer.png">
+      </div>
+    
+
+</ion-content>

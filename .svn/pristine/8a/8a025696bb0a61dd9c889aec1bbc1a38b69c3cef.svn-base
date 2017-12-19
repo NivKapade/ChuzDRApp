@@ -1,0 +1,6 @@
+<ion-tabs color="footer">
+  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="ChuzDr" tabIcon="ios-contract"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="Chat Notify" tabBadge="14" tabBadgeStyle="danger" tabIcon="ios-notifications"></ion-tab>
+  <ion-tab [root]="tab4Root" tabTitle="Setting" tabIcon="ios-settings"></ion-tab>
+</ion-tabs>

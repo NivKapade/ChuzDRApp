@@ -1,0 +1,70 @@
+import { RequestOptions, Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Headers } from '@angular/http';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs/Observable';
+import { TokenServiceProvider } from '../token-service/token-service';
+import { Header } from 'ionic-angular/components/toolbar/toolbar-header';
+
+
+/*
+  Generated class for the LoginServiceProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+@Injectable()
+export class LoginServiceProvider {
+  url: string = "http://192.168.12.59:8080/CS-OTP/api";
+  tokenRes: any;
+  token: string = "";
+  data: Observable<any>;
+  response: any;
+
+  constructor(private http: Http,
+    private tokenService: TokenServiceProvider) {
+    console.log('Hello LoginServiceProvider Provider');
+    this.tokenService.getToken().then(data => {
+      debugger;
+      this.tokenRes = data;
+      if (this.tokenRes.status == "success") {
+        this.token = this.tokenRes.responseObject;
+      }
+    });
+
+  }
+
+  login(mobile: number) {
+
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('ApplicationId', '11105');
+    headers.append('Accept', 'application/json');
+    headers.append('token', this.token);
+    //  headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+    // headers.append('Access-Control-Allow-Origin', '*');
+    // headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
+
+
+
+    let opt = new RequestOptions({ headers: headers });
+    return new Promise(resolve => {
+      this.http.get(this.url + '/otp/sendOTP/' + mobile + '?countryCode=91', opt)
+        .subscribe((data: Response) => {
+          debugger;
+          let res: any = data.json();
+          this.token = data.json().responseObject;
+          console.log("RES DATA :", this.token);
+          resolve(res);
+
+        }, err => {
+          console.log(err);
+        });
+    });
+
+
+  }
+}

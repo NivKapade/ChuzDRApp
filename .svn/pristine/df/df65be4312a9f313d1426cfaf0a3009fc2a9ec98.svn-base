@@ -1,0 +1,52 @@
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
+import { ToastController } from 'ionic-angular/components/toast/toast-controller';
+import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
+
+/**
+ * Generated class for the OtpPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@Component({
+  selector: 'page-otp',
+  templateUrl: 'otp.html',
+})
+export class OtpPage {
+
+  public mobParam;
+
+  @ViewChild('otp') number;
+  constructor(public navCtrl: NavController, navParams: NavParams,
+    public toastCtrl: ToastController) {
+      console.log("Mobile " + navParams.get("mobile"));
+      this.mobParam = navParams.get("otp");
+
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad OtpPage');
+  }
+
+  verifyOTP() {
+    
+    console.log("OOOTP :",this.number.value);
+    
+    if ((this.number.value as string).length != 5) {
+      let toast = this.toastCtrl.create({
+        message: 'Please enter a valid OTP',
+        duration: 3000
+      });
+      toast.present();
+    } else {
+     this.navCtrl.push(TabsPage).then(() => {
+      const startIndex = this.navCtrl.getActive().index - 1;
+      this.navCtrl.remove(startIndex, 1);
+    });;
+    }
+  }
+
+}

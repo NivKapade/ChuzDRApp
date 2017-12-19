@@ -1,0 +1,31 @@
+page-home {
+    .filters {
+        
+                ion-col {
+                    text-align: center;
+                    font-size: 1.6rem;
+                    line-height: 1.6rem;
+        
+        
+                    &.col-with-arrow {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+        
+                p {
+                    margin: 0;
+                    font-size: 1.6rem;
+                    line-height: 1.6rem;
+                }
+            }
+            .smalltoolbar{
+                &.toolbar-md{
+                min-height: 45px;
+                }
+                &.toolbar-ios{
+                min-height: 45px;
+                }
+                }
+}

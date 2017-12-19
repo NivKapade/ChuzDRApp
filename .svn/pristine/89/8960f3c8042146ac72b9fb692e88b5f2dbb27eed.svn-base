@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title>
+      Settings
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-group>
+    <ion-item-divider color="light">
+      <strong>Account</strong>
+    </ion-item-divider>
+    <ion-item style="background: rgba(0,0,0,0);" class="item">Profile</ion-item>
+    <ion-item class="item">Add a Family Member</ion-item>
+    <ion-item class="item">Medical Record</ion-item>
+    <ion-item class="item">Chat Record</ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider color="light">
+      <strong>Share</strong>
+    </ion-item-divider>
+    <ion-item class="item">Rate App</ion-item>
+    <ion-item class="item">Invite Family and Friends</ion-item>
+    <ion-item class="item">Stop Notification
+      <ion-label>Stop Notification</ion-label>
+      <ion-toggle [(ngModel)]="pepperoni"></ion-toggle>
+    </ion-item>
+
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider color="light">
+      <strong>About</strong>
+    </ion-item-divider>
+    <ion-item class="item" (click)="navigateHowItWorks()">How it works</ion-item>
+    <ion-item class="item" (click)="navigateTermsOfUse()">Terms of Use</ion-item>
+    <ion-item class="item" (click)="navigateContactUs()">Contact Us</ion-item>
+    <ion-item class="item">Logout</ion-item>
+  </ion-item-group>
+</ion-content>

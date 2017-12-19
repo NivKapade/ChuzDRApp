@@ -1,0 +1,176 @@
+
+$primary: #387ef5;
+$ligtGray: #ededed;
+$clkGreen : #19b285;
+
+page-chatbot {
+  ion-label{white-space: normal;}
+  .chatbox1{
+    background: #ffffff;
+    border: 1px solid #dde4e5;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    padding: 10px 10px 6px 10px;
+
+  }
+  .chatbox1:before {
+    content: "";
+    position: absolute;
+    // height: 20px;
+    // width: 20px;
+    background: #fff;
+    top: 13px;
+    left: 10px;
+    z-index: 999999999;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-right: 6px solid #dde4e5;
+    border-bottom: 5px solid transparent;
+}
+
+
+  .chatbox2{
+    background: #19b285;
+    border: 1px solid #19b285;
+    border-radius: 5px;
+    border-top-right-radius: 0px;
+    padding: 10px 10px 6px 10px;
+    width: 70%;
+    float: right;
+    white-space: normal;
+    // position: relative;
+
+    span{
+         color: #fff;
+    font-weight: normal;
+    font-size: 1.6rem;
+    }
+
+    .question-time{
+      white-space: normal;
+      color: #fff;
+      font-weight: normal;
+      font-size: 1.2rem;
+      text-align: right;
+      margin-top: 8px;
+    }
+
+  }
+
+  .chatbox2:after {
+    content: "";
+    position: absolute;
+    // height: 20px;
+    // width: 20px;
+    background: #fff;
+    top: 13px;
+    right: 10px;
+    z-index: 999999999;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-left: 6px solid #14e2ac;
+    border-bottom: 5px solid transparent;
+}
+
+  .clearfix{clear: both;}
+  ion-navbar ion-buttons ion-icon {
+    font-size: 2.2rem !important;
+    &:first-of-type {
+      margin-left: 15px;
+    }
+  }
+  ion-title {
+    font-weight: normal;
+    p {
+      line-height:  0em;
+      margin-bottom: 0.5em;
+    }
+    small {
+      font-size: 60%;
+    }
+  }
+  ion-item {
+    &.received {
+      .question-bx{width: auto;}
+      .question{
+            white-space: normal;
+            color: #333;
+            font-weight: bold;
+            font-size: 1.6rem;
+          }
+          .question-time{
+            white-space: normal;
+            color: #888;
+            font-weight: normal;
+            font-size: 1.2rem;
+            text-align: right;
+          }
+      .message-content {
+       
+        background: #fff ;
+        color: #666;
+       border: 1px solid $ligtGray;
+       float: left;
+       font-size: 1.6rem;
+       box-shadow: 0px 0px 4px 0px #e4e4e4;
+      }
+      p.con {
+        
+          display: inline;
+          background: $primary;
+          color: white;
+         
+        }
+   
+    }
+
+    &.sent {
+      p.message-content {
+        background: $clkGreen;
+        color: white;
+      }
+    }
+
+    &.session-start {
+      margin-top: 5px;
+      margin-bottom: 0px;
+    }
+
+    .message-content {
+      padding: 9px 15px;
+      border-radius: 20px;
+      width: auto;
+      max-width: 100%;
+    }
+  }
+
+  .above-textarea {
+    padding-left: 8px;
+    margin-bottom: 4px;
+    position: fixed;
+
+    ion-icon {
+      padding: 0 12px;
+      font-size: 150%;
+      color: #777;
+    }
+  }
+
+  .textarea-wrapper {
+    ion-icon {
+      padding: 0 0 0 15px;
+    }
+
+    ion-textarea {
+      textarea.text-input {
+        overflow: hidden;
+        padding: 0 8px 0 8px;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  
+}

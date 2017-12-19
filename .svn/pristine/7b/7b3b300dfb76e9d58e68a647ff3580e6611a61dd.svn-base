@@ -1,0 +1,39 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HowItWorksPage } from '../how-it-works/how-it-works';
+import { TermsOfUsePage } from '../terms-of-use/terms-of-use';
+import { ContactUsPage } from '../contact-us/contact-us';
+
+/**
+ * Generated class for the SettingsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
+@Component({
+  selector: 'page-settings',
+  templateUrl: 'settings.html',
+})
+export class SettingsPage {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SettingsPage');
+  }
+
+  navigateHowItWorks(){
+      this.navCtrl.push(HowItWorksPage);
+  }
+
+  navigateTermsOfUse(){
+    this.navCtrl.push(TermsOfUsePage);
+  }
+
+  navigateContactUs(){
+    this.navCtrl.push(ContactUsPage);
+  }
+}
