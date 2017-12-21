@@ -1,0 +1,36 @@
+page-add-family-member-popover {
+.memberinput{
+    max-width: 100%;
+    width: 100%;
+    border-radius: 30px;
+    border: 1px solid #dee5e7;
+    vertical-align: middle;
+    background-color: white;
+    padding: 5px;
+}
+.select-text
+{
+    text-align: left;
+    width: 90%;
+    height: 100%;
+    font-size: 14px;
+    font-weight: 200;
+    color: #414040;
+}
+.select-icon
+{
+    width: 10% !important;
+    align-items: left;
+    padding: 0;
+}
+.selectrel
+{
+    width: 100%;
+    margin: 0px;
+    max-width: 100%;
+    border-bottom: 0px;
+}
+.selectname{
+    border-bottom: 0px;
+}
+}
