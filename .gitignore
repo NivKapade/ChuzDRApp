@@ -33,3 +33,9 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+.svn/wc.db
+.svn/pristine/fa/faf7f5d247b2ed4a09f3caabee175950957b3845.svn-base
+.svn/pristine/ef/efba5f87e8ee623327b7f4c89af9afcfc1c6fa09.svn-base
+.svn/pristine/ed/edb5ab5ab5c88fae79929cd413dcd64f6e44ddf3.svn-base
+.svn/pristine/e2/e280f41cf860f009f13715813d79329ecd34222f.svn-base
+*.svn-base
