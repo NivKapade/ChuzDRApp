@@ -1,0 +1,72 @@
+page-user-location-popover {
+    .memberinput{
+        max-width: 100%;
+        width: 90%;
+        border-radius: 30px;
+        border: 1px solid #dee5e7;
+        vertical-align: middle;
+        background-color: white;
+        margin: 10px;
+    }
+    .memberinput2{
+        max-width: 100%;
+        width: 90%;
+        border-radius: 30px;
+        border: 1px solid #dee5e7;
+        vertical-align: middle;
+        background-color: #3BB8E3;
+        color: white;
+        margin: 10px;
+    }
+    .select-text
+    {
+        text-align: left;
+        width: 90%;
+        height: 100%;
+        font-size: 14px;
+        font-weight: 200;
+        color: #414040;
+    }
+    .select-icon
+    {
+        width: 10% !important;
+        align-items: left;
+        padding: 0;
+    }
+  
+    .selectname{
+        border-bottom: 0px;
+        font-size: 14px;
+        font-weight: 200;
+    }
+        .item-inner {
+            border-bottom-color: transparent !important;
+            box-shadow: none !important;
+            line-height: 1em !important;
+            }
+          
+            .toolbar-title
+            {
+                font-size: 14px;
+               font-weight: 600;
+               text-overflow: unset;
+               white-space: unset;
+            }
+    .locationButton{
+        background-color: white;
+        color: black;
+        box-shadow: none !important;
+    }
+    .locationButton2{
+        background-color: #3BB8E3;
+        color: white;
+        box-shadow: none !important;
+    }
+    input:focus {
+        outline-offset: 0;
+      }
+    .scroll-content
+    {
+        outline-offset: 0;
+      }
+}
